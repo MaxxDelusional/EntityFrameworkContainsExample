@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<h2><a href="@Url.Action("SeedDB", "Home")">Seed Database</a></h2>
+
+<h2><a href="@Url.Action("RunQuery", "Home")">Test with no filter</a></h2>
+
+
+<h2><a href="@Url.Action("RunQuery", "Home")?schoolIDs=1">Test with 1 filter</a></h2>
+
+
+<h2><a href="@Url.Action("RunQuery", "Home")?schoolIDs=1&schoolIDs=2">Test with multiple filters</a></h2>
+
+<p>Note: School IDs used for filters are hard coded in the source</p>
+
+
+
+
