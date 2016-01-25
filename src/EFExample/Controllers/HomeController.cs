@@ -21,6 +21,14 @@ namespace EFExample.Controllers
         public async Task<IActionResult> Index(long[] schoolIDs)
         {
 
+     
+
+            return View();
+        }
+
+        public  IActionResult RunQuery(long[] schoolIDs, long[] teacherIDs)
+        {
+
             var results = from x in db.Students
                           select x;
 
@@ -33,20 +41,11 @@ namespace EFExample.Controllers
 
             }
 
-            return View(await results.ToListAsync());
-        }
 
-        public  IActionResult RunQuery(long[] schoolIDs)
-        {
-
-            var results = from x in db.Students
-                          select x;
-
-
-            if (schoolIDs != null && schoolIDs.Length > 0)
+            if (teacherIDs != null && teacherIDs.Length > 0)
             {
                 results = from x in results
-                          where schoolIDs.Contains(x.Teacher.SchoolID)
+                          where teacherIDs.Contains(x.TeacherID)
                           select x;
 
             }
